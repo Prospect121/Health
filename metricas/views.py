@@ -29,14 +29,13 @@ def show(request):
 
 def edit(request, id):
     metrics = Metrics.objects.get(id=id)
-    # stressLevel = Metrics.
-    return render(request, 'edit.html', {'metrics': metrics, })
+    stressLevels = Metrics.STRESS_LEVEL
+    return render(request, 'edit.html', {'metrics': metrics, 'stressLevels': stressLevels})
 
 
 def update(request, id):
     metrics = Metrics.objects.get(id=id)
     form = MetricsForm(request.POST, instance=metrics)
-    #stressLevels = Metrics.stresslevel.choices
     if form.is_valid():
         form.save()
         return redirect("/show")

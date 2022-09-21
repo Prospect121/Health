@@ -3,3 +3,8 @@
     padding: 0;
     list-style: none;
 }
+
+td#operation {
+    display: flex;
+    justify-content: space-around;
+}

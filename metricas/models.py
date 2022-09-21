@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Metrics(models.Model):
-    id = models.CharField(max_length=20, primary_key=True)
+    id = models.BigAutoField(primary_key=True, editable=False)
     names = models.CharField(max_length=100)
     surnames = models.CharField(max_length=100)
     age = models.IntegerField()
