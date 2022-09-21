@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Ritmo cardiaco</th>
+            <th>Saturación de oxígeno en sangre</th>
+            <th>Nivel de estrés</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for metrics in metric %}
+        <tr>
+            <td>{{ metrics.id }}</td>
+            <td>{{ metrics.names }}</td>
+            <td>{{ metrics.surnames }}</td>
+            <td>{{ metrics.age }}</td>
+            <td>{{ metrics.weight }}</td>
+            <td>{{ metrics.heartRate }}</td>
+            <td>{{ metrics.bloodOxygenSaturation }}</td>
+            <td>{{ metrics.stresslevel }}</td>
+            <td>
+                <a href="/edit/{{ metrics.id }}"><span class="glyphicon glyphicon-pencil">Editar</span></a>
+                <a href="/delete/{{ metrics.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/diary" class="btn btn-primary">Añadir nuevo registro</a></center>
+{% endblock %}
